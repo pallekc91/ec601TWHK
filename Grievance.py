@@ -9,10 +9,10 @@ import json
 
 
 #Twitter API credentials
-consumer_key = "vSXbcE9H9BJcUiN4vbLethQej"
-consumer_secret = "BzX7cXQrYxfAgqvmP9X8o17Xej8DbnrCU3tBnwjYy4fs0Cvc2A"
-access_key = "974434191906689024-6v6syfa65LzHp1CRnQBPxoK8Nd6HIsT"
-access_secret = "TNM33e3ncOSGhgAZvsdx2j6gEjjXcHAgSufgogyvNeFDQ"
+consumer_key = ""
+consumer_secret = ""
+access_key = ""
+access_secret = ""
 
 
 # In[2]:
@@ -195,7 +195,7 @@ def sendemail(sender, receiver, username, content):
 
 string = str(df['Content'][0]).encode("ascii", "ignore").decode('utf-8')
 
-sendemail("373881462h@gmail.com","373881462h@gmail.com", df['User Name'][0], string)
+sendemail("Type sender email address here","Type reciever email address here", df['User Name'][0], string)
 
 
 # In[ ]:
