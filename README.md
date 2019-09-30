@@ -124,7 +124,7 @@ def sendemail(sender, receiver, username, content, department):
         server.sendmail(sender_email, receiver_email, message)
  ```
  Finally, we recieved the email of the tweet that reflects some problem in Boston transportation.  
- ![result](https://github.com/qinghan531/ec601TWHK/tree/work_qing)
+![](https://github.com/qinghan531/ec601TWHK/blob/work_qing/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-09-30%20%E4%B8%8A%E5%8D%881.07.52.png)
  
 ---
 To set up the twitter API, view this link:
