@@ -12,8 +12,8 @@ Maintanance [cleanliness, dirty, ugly, maintanance, ]
 
 def identifyDepartment(tweetsJson):
 	for key in tweetsJson.keys():
-		Department = idDepartment(tweetsJson[key])
-		tweetsJson['Department'] = Department
+		Department = idDepartment(tweetsJson[key]['text'])
+		tweetsJson[key]['Department'] = Department
 	return tweetsJson
 
 def idDepartment(text):
@@ -35,7 +35,3 @@ def idDepartment(text):
 	if len(departments) == 0:
 		departments.append("General");
 	return departments
-
-
-
-print(idDepartment(sys.argv[1]))

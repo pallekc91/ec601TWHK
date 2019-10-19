@@ -3,6 +3,8 @@ import six
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
+import datetime
+import json
 
 def analysis(text): 
     client = language.LanguageServiceClient()
@@ -26,19 +28,14 @@ def analysis(text):
             return_json["Begin Offset"] = format(mention.text.begin_offset)
             return_json["Content"] = format(mention.text.content)
             return_json["Magnitude"] = format(mention.sentiment.magnitude)
-            return_json["Sentiment"] = format(mention.sentiment.score)
+            return_json["Score"] = format(mention.sentiment.score)
             return_json["Type"] = format(mention.type)
             return_json["Salience"] = format(entity.salience)
     return return_json
 
-    def analysis_json(input_twitter_json):
-        score_json = {}
-        for key in input_twitter_json.keys():
-            score_json[key] = analysis(input_twitter_json[key])
-        name = ('JsonFromSentimentAnanlysis'+str(datetime.datetime.now())+'.json').replace(" ","");
-        twitterJsonFile = open(name,"w");
-        twitterJsonFile.write(json.dumps(json_towrite, indent=4))
-        return score_json
-
-
-print(analysis(sys.argv[1]))
+def analysis_json(input_twitter_json):
+    for key in input_twitter_json.keys():
+        input_twitter_json[key]['google_score'] = analysis(input_twitter_json[key]['text'])
+    name = ('JsonFromSentimentAnanlysis'+str(datetime.datetime.now())+'.json').replace(" ","");
+    twitterJsonFile = open(name,"w");
+    twitterJsonFile.write(json.dumps(input_twitter_json, indent=4))
